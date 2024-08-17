@@ -1,0 +1,28 @@
+<html>
+  <body style="background-color:pink">
+    <h1>To-Do List </h1>
+    <input type="text"></input>
+    <button onClick="addTodo()" style="background-color:#FF1493; color: white">Add Todo</button>
+    
+  </body>
+  <script>
+  let ctr=1;
+    function deleteTodo(index){
+      const element = document.getElementById("todo-"+index);
+      element.parentNode.removeChild(element);
+    }
+    function addTodo(index){
+      const inputEl=document.querySelector("input");
+      const value=inputEl.value;
+      
+      const newDiv= document.createElement("div");
+      newDiv.setAttribute("id","todo-"+ctr);
+      newDiv.style.backgroundColor = "#FF69B4";  
+      newDiv.style.padding = "10px";
+      newDiv.style.marginBottom = "5px";
+      newDiv.innerHTML= "<div>"+value+ "</div> <button style='background-color:#C71585; color: white' onClick=\"deleteTodo("+ ctr +")\">Delete</button>";
+      document.querySelector("body").appendChild(newDiv);
+      ctr=ctr+1;
+    }
+  </script>
+</html>
